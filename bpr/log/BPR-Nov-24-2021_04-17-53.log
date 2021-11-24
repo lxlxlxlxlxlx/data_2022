@@ -1,0 +1,693 @@
+Wed 24 Nov 2021 04:17:53 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = /home/jlifz/anaconda3/envs/env3.7/lib/python3.7/site-packages/recbole/config/../dataset_example/ml-100k
+show_progress = True
+save_dataset = False
+save_dataloaders = False
+benchmark_filename = None
+
+Training Hyper Parameters:
+checkpoint_dir = saved
+epochs = 300
+train_batch_size = 2048
+learner = adam
+learning_rate = 0.001
+eval_step = 1
+stopping_step = 10
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [10]
+valid_metric = MRR@10
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'rating', 'timestamp']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+
+Other Hyper Parameters: 
+neg_sampling = {'uniform': 1}
+repeatable = False
+embedding_size = 64
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+device = cuda
+train_neg_sample_args = {'strategy': 'by', 'by': 1, 'distribution': 'uniform'}
+eval_neg_sample_args = {'strategy': 'full', 'distribution': 'uniform'}
+
+
+Wed 24 Nov 2021 04:17:53 INFO  ml-100k
+The number of users: 944
+Average actions of users: 106.04453870625663
+The number of items: 1683
+Average actions of items: 59.45303210463734
+The number of inters: 100000
+The sparsity of the dataset: 93.70575143257098%
+Remain Fields: ['user_id', 'item_id', 'rating', 'timestamp']
+Wed 24 Nov 2021 04:17:53 INFO  [Training]: train_batch_size = [2048] negative sampling: [{'uniform': 1}]
+Wed 24 Nov 2021 04:17:53 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Wed 24 Nov 2021 04:17:56 INFO  BPR(
+  (user_embedding): Embedding(944, 64)
+  (item_embedding): Embedding(1683, 64)
+  (loss): BPRLoss()
+)
+Trainable parameters: 168128
+Wed 24 Nov 2021 04:17:56 INFO  epoch 0 training [time: 0.37s, train loss: 27.7228]
+Wed 24 Nov 2021 04:18:00 INFO  epoch 0 evaluating [time: 3.56s, valid_score: 0.020500]
+Wed 24 Nov 2021 04:18:00 INFO  valid result: 
+recall@10 : 0.0067    mrr@10 : 0.0205    ndcg@10 : 0.0086    hit@10 : 0.0732    precision@10 : 0.0081    
+Wed 24 Nov 2021 04:18:00 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:00 INFO  epoch 1 training [time: 0.24s, train loss: 27.6125]
+Wed 24 Nov 2021 04:18:03 INFO  epoch 1 evaluating [time: 2.96s, valid_score: 0.066800]
+Wed 24 Nov 2021 04:18:03 INFO  valid result: 
+recall@10 : 0.0185    mrr@10 : 0.0668    ndcg@10 : 0.0273    hit@10 : 0.1782    precision@10 : 0.023    
+Wed 24 Nov 2021 04:18:03 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:04 INFO  epoch 2 training [time: 0.22s, train loss: 27.2220]
+Wed 24 Nov 2021 04:18:07 INFO  epoch 2 evaluating [time: 3.03s, valid_score: 0.158800]
+Wed 24 Nov 2021 04:18:07 INFO  valid result: 
+recall@10 : 0.0573    mrr@10 : 0.1588    ndcg@10 : 0.0784    hit@10 : 0.3871    precision@10 : 0.0663    
+Wed 24 Nov 2021 04:18:07 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:07 INFO  epoch 3 training [time: 0.41s, train loss: 25.6879]
+Wed 24 Nov 2021 04:18:10 INFO  epoch 3 evaluating [time: 3.03s, valid_score: 0.237500]
+Wed 24 Nov 2021 04:18:10 INFO  valid result: 
+recall@10 : 0.0998    mrr@10 : 0.2375    ndcg@10 : 0.1241    hit@10 : 0.5133    precision@10 : 0.0953    
+Wed 24 Nov 2021 04:18:10 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:10 INFO  epoch 4 training [time: 0.20s, train loss: 22.1642]
+Wed 24 Nov 2021 04:18:13 INFO  epoch 4 evaluating [time: 2.93s, valid_score: 0.265200]
+Wed 24 Nov 2021 04:18:13 INFO  valid result: 
+recall@10 : 0.1125    mrr@10 : 0.2652    ndcg@10 : 0.1379    hit@10 : 0.5408    precision@10 : 0.1007    
+Wed 24 Nov 2021 04:18:13 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:14 INFO  epoch 5 training [time: 0.23s, train loss: 18.0910]
+Wed 24 Nov 2021 04:18:17 INFO  epoch 5 evaluating [time: 3.04s, valid_score: 0.273400]
+Wed 24 Nov 2021 04:18:17 INFO  valid result: 
+recall@10 : 0.1175    mrr@10 : 0.2734    ndcg@10 : 0.1437    hit@10 : 0.5493    precision@10 : 0.1034    
+Wed 24 Nov 2021 04:18:17 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:17 INFO  epoch 6 training [time: 0.23s, train loss: 15.3879]
+Wed 24 Nov 2021 04:18:20 INFO  epoch 6 evaluating [time: 3.05s, valid_score: 0.286000]
+Wed 24 Nov 2021 04:18:20 INFO  valid result: 
+recall@10 : 0.1254    mrr@10 : 0.286    ndcg@10 : 0.1503    hit@10 : 0.5737    precision@10 : 0.1056    
+Wed 24 Nov 2021 04:18:20 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:20 INFO  epoch 7 training [time: 0.25s, train loss: 14.1294]
+Wed 24 Nov 2021 04:18:23 INFO  epoch 7 evaluating [time: 2.97s, valid_score: 0.300900]
+Wed 24 Nov 2021 04:18:23 INFO  valid result: 
+recall@10 : 0.132    mrr@10 : 0.3009    ndcg@10 : 0.1579    hit@10 : 0.5917    precision@10 : 0.1081    
+Wed 24 Nov 2021 04:18:23 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:23 INFO  epoch 8 training [time: 0.17s, train loss: 13.3344]
+Wed 24 Nov 2021 04:18:26 INFO  epoch 8 evaluating [time: 2.83s, valid_score: 0.312000]
+Wed 24 Nov 2021 04:18:26 INFO  valid result: 
+recall@10 : 0.1355    mrr@10 : 0.312    ndcg@10 : 0.162    hit@10 : 0.5938    precision@10 : 0.108    
+Wed 24 Nov 2021 04:18:26 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:26 INFO  epoch 9 training [time: 0.17s, train loss: 12.7328]
+Wed 24 Nov 2021 04:18:29 INFO  epoch 9 evaluating [time: 2.80s, valid_score: 0.315800]
+Wed 24 Nov 2021 04:18:29 INFO  valid result: 
+recall@10 : 0.1419    mrr@10 : 0.3158    ndcg@10 : 0.1677    hit@10 : 0.6098    precision@10 : 0.1122    
+Wed 24 Nov 2021 04:18:29 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:29 INFO  epoch 10 training [time: 0.17s, train loss: 12.2237]
+Wed 24 Nov 2021 04:18:32 INFO  epoch 10 evaluating [time: 2.79s, valid_score: 0.320900]
+Wed 24 Nov 2021 04:18:32 INFO  valid result: 
+recall@10 : 0.151    mrr@10 : 0.3209    ndcg@10 : 0.1735    hit@10 : 0.6246    precision@10 : 0.1159    
+Wed 24 Nov 2021 04:18:32 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:32 INFO  epoch 11 training [time: 0.18s, train loss: 11.7676]
+Wed 24 Nov 2021 04:18:35 INFO  epoch 11 evaluating [time: 2.93s, valid_score: 0.320600]
+Wed 24 Nov 2021 04:18:35 INFO  valid result: 
+recall@10 : 0.1629    mrr@10 : 0.3206    ndcg@10 : 0.1802    hit@10 : 0.6405    precision@10 : 0.1217    
+Wed 24 Nov 2021 04:18:36 INFO  epoch 12 training [time: 0.16s, train loss: 11.3600]
+Wed 24 Nov 2021 04:18:38 INFO  epoch 12 evaluating [time: 2.78s, valid_score: 0.326800]
+Wed 24 Nov 2021 04:18:38 INFO  valid result: 
+recall@10 : 0.1684    mrr@10 : 0.3268    ndcg@10 : 0.1856    hit@10 : 0.6543    precision@10 : 0.1264    
+Wed 24 Nov 2021 04:18:38 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:39 INFO  epoch 13 training [time: 0.17s, train loss: 10.9597]
+Wed 24 Nov 2021 04:18:41 INFO  epoch 13 evaluating [time: 2.88s, valid_score: 0.324900]
+Wed 24 Nov 2021 04:18:41 INFO  valid result: 
+recall@10 : 0.1716    mrr@10 : 0.3249    ndcg@10 : 0.1884    hit@10 : 0.6575    precision@10 : 0.1298    
+Wed 24 Nov 2021 04:18:42 INFO  epoch 14 training [time: 0.20s, train loss: 10.7345]
+Wed 24 Nov 2021 04:18:45 INFO  epoch 14 evaluating [time: 2.90s, valid_score: 0.327300]
+Wed 24 Nov 2021 04:18:45 INFO  valid result: 
+recall@10 : 0.173    mrr@10 : 0.3273    ndcg@10 : 0.1912    hit@10 : 0.6617    precision@10 : 0.1329    
+Wed 24 Nov 2021 04:18:45 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:45 INFO  epoch 15 training [time: 0.16s, train loss: 10.3206]
+Wed 24 Nov 2021 04:18:48 INFO  epoch 15 evaluating [time: 2.84s, valid_score: 0.329000]
+Wed 24 Nov 2021 04:18:48 INFO  valid result: 
+recall@10 : 0.173    mrr@10 : 0.329    ndcg@10 : 0.192    hit@10 : 0.666    precision@10 : 0.1333    
+Wed 24 Nov 2021 04:18:48 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:48 INFO  epoch 16 training [time: 0.54s, train loss: 10.0202]
+Wed 24 Nov 2021 04:18:51 INFO  epoch 16 evaluating [time: 3.09s, valid_score: 0.334700]
+Wed 24 Nov 2021 04:18:51 INFO  valid result: 
+recall@10 : 0.179    mrr@10 : 0.3347    ndcg@10 : 0.1962    hit@10 : 0.685    precision@10 : 0.137    
+Wed 24 Nov 2021 04:18:51 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:51 INFO  epoch 17 training [time: 0.20s, train loss: 9.7365]
+Wed 24 Nov 2021 04:18:54 INFO  epoch 17 evaluating [time: 2.95s, valid_score: 0.334900]
+Wed 24 Nov 2021 04:18:54 INFO  valid result: 
+recall@10 : 0.1813    mrr@10 : 0.3349    ndcg@10 : 0.1982    hit@10 : 0.685    precision@10 : 0.1399    
+Wed 24 Nov 2021 04:18:54 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:18:55 INFO  epoch 18 training [time: 0.21s, train loss: 9.5041]
+Wed 24 Nov 2021 04:18:58 INFO  epoch 18 evaluating [time: 2.96s, valid_score: 0.333700]
+Wed 24 Nov 2021 04:18:58 INFO  valid result: 
+recall@10 : 0.1839    mrr@10 : 0.3337    ndcg@10 : 0.1994    hit@10 : 0.6903    precision@10 : 0.1408    
+Wed 24 Nov 2021 04:18:58 INFO  epoch 19 training [time: 0.22s, train loss: 9.2874]
+Wed 24 Nov 2021 04:19:01 INFO  epoch 19 evaluating [time: 3.04s, valid_score: 0.334100]
+Wed 24 Nov 2021 04:19:01 INFO  valid result: 
+recall@10 : 0.188    mrr@10 : 0.3341    ndcg@10 : 0.2021    hit@10 : 0.6978    precision@10 : 0.1432    
+Wed 24 Nov 2021 04:19:01 INFO  epoch 20 training [time: 0.24s, train loss: 9.0921]
+Wed 24 Nov 2021 04:19:04 INFO  epoch 20 evaluating [time: 3.07s, valid_score: 0.341800]
+Wed 24 Nov 2021 04:19:04 INFO  valid result: 
+recall@10 : 0.1893    mrr@10 : 0.3418    ndcg@10 : 0.2038    hit@10 : 0.701    precision@10 : 0.1439    
+Wed 24 Nov 2021 04:19:04 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:19:04 INFO  epoch 21 training [time: 0.17s, train loss: 8.9434]
+Wed 24 Nov 2021 04:19:07 INFO  epoch 21 evaluating [time: 2.90s, valid_score: 0.340300]
+Wed 24 Nov 2021 04:19:07 INFO  valid result: 
+recall@10 : 0.1882    mrr@10 : 0.3403    ndcg@10 : 0.204    hit@10 : 0.6967    precision@10 : 0.1429    
+Wed 24 Nov 2021 04:19:07 INFO  epoch 22 training [time: 0.17s, train loss: 8.7868]
+Wed 24 Nov 2021 04:19:10 INFO  epoch 22 evaluating [time: 2.79s, valid_score: 0.338100]
+Wed 24 Nov 2021 04:19:10 INFO  valid result: 
+recall@10 : 0.1881    mrr@10 : 0.3381    ndcg@10 : 0.2032    hit@10 : 0.701    precision@10 : 0.1433    
+Wed 24 Nov 2021 04:19:10 INFO  epoch 23 training [time: 0.19s, train loss: 8.6096]
+Wed 24 Nov 2021 04:19:13 INFO  epoch 23 evaluating [time: 2.91s, valid_score: 0.342600]
+Wed 24 Nov 2021 04:19:13 INFO  valid result: 
+recall@10 : 0.1872    mrr@10 : 0.3426    ndcg@10 : 0.2032    hit@10 : 0.701    precision@10 : 0.1427    
+Wed 24 Nov 2021 04:19:13 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:19:14 INFO  epoch 24 training [time: 0.25s, train loss: 8.4314]
+Wed 24 Nov 2021 04:19:17 INFO  epoch 24 evaluating [time: 3.06s, valid_score: 0.339200]
+Wed 24 Nov 2021 04:19:17 INFO  valid result: 
+recall@10 : 0.1877    mrr@10 : 0.3392    ndcg@10 : 0.202    hit@10 : 0.6967    precision@10 : 0.142    
+Wed 24 Nov 2021 04:19:17 INFO  epoch 25 training [time: 0.21s, train loss: 8.3102]
+Wed 24 Nov 2021 04:19:20 INFO  epoch 25 evaluating [time: 2.97s, valid_score: 0.341000]
+Wed 24 Nov 2021 04:19:20 INFO  valid result: 
+recall@10 : 0.193    mrr@10 : 0.341    ndcg@10 : 0.2063    hit@10 : 0.7031    precision@10 : 0.1459    
+Wed 24 Nov 2021 04:19:20 INFO  epoch 26 training [time: 0.16s, train loss: 8.2121]
+Wed 24 Nov 2021 04:19:23 INFO  epoch 26 evaluating [time: 2.85s, valid_score: 0.343100]
+Wed 24 Nov 2021 04:19:23 INFO  valid result: 
+recall@10 : 0.1918    mrr@10 : 0.3431    ndcg@10 : 0.207    hit@10 : 0.7041    precision@10 : 0.1468    
+Wed 24 Nov 2021 04:19:23 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:19:23 INFO  epoch 27 training [time: 0.22s, train loss: 8.1225]
+Wed 24 Nov 2021 04:19:26 INFO  epoch 27 evaluating [time: 3.04s, valid_score: 0.346600]
+Wed 24 Nov 2021 04:19:26 INFO  valid result: 
+recall@10 : 0.1926    mrr@10 : 0.3466    ndcg@10 : 0.2082    hit@10 : 0.7052    precision@10 : 0.1477    
+Wed 24 Nov 2021 04:19:26 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:19:27 INFO  epoch 28 training [time: 0.32s, train loss: 8.0192]
+Wed 24 Nov 2021 04:19:29 INFO  epoch 28 evaluating [time: 2.78s, valid_score: 0.348900]
+Wed 24 Nov 2021 04:19:29 INFO  valid result: 
+recall@10 : 0.1949    mrr@10 : 0.3489    ndcg@10 : 0.2092    hit@10 : 0.7116    precision@10 : 0.1489    
+Wed 24 Nov 2021 04:19:29 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:19:30 INFO  epoch 29 training [time: 0.18s, train loss: 7.7506]
+Wed 24 Nov 2021 04:19:32 INFO  epoch 29 evaluating [time: 2.80s, valid_score: 0.349300]
+Wed 24 Nov 2021 04:19:32 INFO  valid result: 
+recall@10 : 0.1957    mrr@10 : 0.3493    ndcg@10 : 0.2102    hit@10 : 0.7116    precision@10 : 0.1496    
+Wed 24 Nov 2021 04:19:32 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:19:33 INFO  epoch 30 training [time: 0.24s, train loss: 7.7132]
+Wed 24 Nov 2021 04:19:36 INFO  epoch 30 evaluating [time: 3.03s, valid_score: 0.342200]
+Wed 24 Nov 2021 04:19:36 INFO  valid result: 
+recall@10 : 0.1953    mrr@10 : 0.3422    ndcg@10 : 0.2086    hit@10 : 0.7052    precision@10 : 0.1498    
+Wed 24 Nov 2021 04:19:36 INFO  epoch 31 training [time: 0.20s, train loss: 7.6495]
+Wed 24 Nov 2021 04:19:39 INFO  epoch 31 evaluating [time: 2.97s, valid_score: 0.343700]
+Wed 24 Nov 2021 04:19:39 INFO  valid result: 
+recall@10 : 0.1981    mrr@10 : 0.3437    ndcg@10 : 0.21    hit@10 : 0.7169    precision@10 : 0.1506    
+Wed 24 Nov 2021 04:19:39 INFO  epoch 32 training [time: 0.17s, train loss: 7.4474]
+Wed 24 Nov 2021 04:19:42 INFO  epoch 32 evaluating [time: 2.82s, valid_score: 0.346300]
+Wed 24 Nov 2021 04:19:42 INFO  valid result: 
+recall@10 : 0.199    mrr@10 : 0.3463    ndcg@10 : 0.2119    hit@10 : 0.7211    precision@10 : 0.1513    
+Wed 24 Nov 2021 04:19:42 INFO  epoch 33 training [time: 0.23s, train loss: 7.4107]
+Wed 24 Nov 2021 04:19:45 INFO  epoch 33 evaluating [time: 2.52s, valid_score: 0.343100]
+Wed 24 Nov 2021 04:19:45 INFO  valid result: 
+recall@10 : 0.1966    mrr@10 : 0.3431    ndcg@10 : 0.2095    hit@10 : 0.7179    precision@10 : 0.1492    
+Wed 24 Nov 2021 04:19:45 INFO  epoch 34 training [time: 0.18s, train loss: 7.3660]
+Wed 24 Nov 2021 04:19:48 INFO  epoch 34 evaluating [time: 2.98s, valid_score: 0.348300]
+Wed 24 Nov 2021 04:19:48 INFO  valid result: 
+recall@10 : 0.1999    mrr@10 : 0.3483    ndcg@10 : 0.2122    hit@10 : 0.7296    precision@10 : 0.1509    
+Wed 24 Nov 2021 04:19:48 INFO  epoch 35 training [time: 0.17s, train loss: 7.2159]
+Wed 24 Nov 2021 04:19:51 INFO  epoch 35 evaluating [time: 2.94s, valid_score: 0.353200]
+Wed 24 Nov 2021 04:19:51 INFO  valid result: 
+recall@10 : 0.1998    mrr@10 : 0.3532    ndcg@10 : 0.2146    hit@10 : 0.7253    precision@10 : 0.1536    
+Wed 24 Nov 2021 04:19:51 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:19:51 INFO  epoch 36 training [time: 0.21s, train loss: 7.0795]
+Wed 24 Nov 2021 04:19:54 INFO  epoch 36 evaluating [time: 2.97s, valid_score: 0.353800]
+Wed 24 Nov 2021 04:19:54 INFO  valid result: 
+recall@10 : 0.2008    mrr@10 : 0.3538    ndcg@10 : 0.2151    hit@10 : 0.7306    precision@10 : 0.154    
+Wed 24 Nov 2021 04:19:54 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:19:54 INFO  epoch 37 training [time: 0.23s, train loss: 6.9460]
+Wed 24 Nov 2021 04:19:57 INFO  epoch 37 evaluating [time: 2.48s, valid_score: 0.362000]
+Wed 24 Nov 2021 04:19:57 INFO  valid result: 
+recall@10 : 0.2027    mrr@10 : 0.362    ndcg@10 : 0.2187    hit@10 : 0.7349    precision@10 : 0.1552    
+Wed 24 Nov 2021 04:19:57 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:19:57 INFO  epoch 38 training [time: 0.23s, train loss: 6.9732]
+Wed 24 Nov 2021 04:20:00 INFO  epoch 38 evaluating [time: 3.04s, valid_score: 0.363000]
+Wed 24 Nov 2021 04:20:00 INFO  valid result: 
+recall@10 : 0.2055    mrr@10 : 0.363    ndcg@10 : 0.2207    hit@10 : 0.7391    precision@10 : 0.1569    
+Wed 24 Nov 2021 04:20:00 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:20:00 INFO  epoch 39 training [time: 0.16s, train loss: 6.8962]
+Wed 24 Nov 2021 04:20:03 INFO  epoch 39 evaluating [time: 2.84s, valid_score: 0.356200]
+Wed 24 Nov 2021 04:20:03 INFO  valid result: 
+recall@10 : 0.2025    mrr@10 : 0.3562    ndcg@10 : 0.2167    hit@10 : 0.7338    precision@10 : 0.1549    
+Wed 24 Nov 2021 04:20:04 INFO  epoch 40 training [time: 0.29s, train loss: 6.7692]
+Wed 24 Nov 2021 04:20:07 INFO  epoch 40 evaluating [time: 3.15s, valid_score: 0.359300]
+Wed 24 Nov 2021 04:20:07 INFO  valid result: 
+recall@10 : 0.2035    mrr@10 : 0.3593    ndcg@10 : 0.2193    hit@10 : 0.7359    precision@10 : 0.1568    
+Wed 24 Nov 2021 04:20:07 INFO  epoch 41 training [time: 0.17s, train loss: 6.6460]
+Wed 24 Nov 2021 04:20:10 INFO  epoch 41 evaluating [time: 2.84s, valid_score: 0.361200]
+Wed 24 Nov 2021 04:20:10 INFO  valid result: 
+recall@10 : 0.2049    mrr@10 : 0.3612    ndcg@10 : 0.2209    hit@10 : 0.7349    precision@10 : 0.158    
+Wed 24 Nov 2021 04:20:10 INFO  epoch 42 training [time: 0.16s, train loss: 6.6423]
+Wed 24 Nov 2021 04:20:13 INFO  epoch 42 evaluating [time: 2.78s, valid_score: 0.358100]
+Wed 24 Nov 2021 04:20:13 INFO  valid result: 
+recall@10 : 0.2048    mrr@10 : 0.3581    ndcg@10 : 0.2206    hit@10 : 0.7306    precision@10 : 0.1589    
+Wed 24 Nov 2021 04:20:13 INFO  epoch 43 training [time: 0.15s, train loss: 6.5519]
+Wed 24 Nov 2021 04:20:16 INFO  epoch 43 evaluating [time: 2.78s, valid_score: 0.357800]
+Wed 24 Nov 2021 04:20:16 INFO  valid result: 
+recall@10 : 0.2044    mrr@10 : 0.3578    ndcg@10 : 0.22    hit@10 : 0.7349    precision@10 : 0.1574    
+Wed 24 Nov 2021 04:20:16 INFO  epoch 44 training [time: 0.19s, train loss: 6.4462]
+Wed 24 Nov 2021 04:20:19 INFO  epoch 44 evaluating [time: 2.84s, valid_score: 0.353800]
+Wed 24 Nov 2021 04:20:19 INFO  valid result: 
+recall@10 : 0.2074    mrr@10 : 0.3538    ndcg@10 : 0.2206    hit@10 : 0.7391    precision@10 : 0.1583    
+Wed 24 Nov 2021 04:20:19 INFO  epoch 45 training [time: 0.19s, train loss: 6.4050]
+Wed 24 Nov 2021 04:20:22 INFO  epoch 45 evaluating [time: 2.84s, valid_score: 0.356100]
+Wed 24 Nov 2021 04:20:22 INFO  valid result: 
+recall@10 : 0.2081    mrr@10 : 0.3561    ndcg@10 : 0.2216    hit@10 : 0.7466    precision@10 : 0.159    
+Wed 24 Nov 2021 04:20:22 INFO  epoch 46 training [time: 0.16s, train loss: 6.2965]
+Wed 24 Nov 2021 04:20:25 INFO  epoch 46 evaluating [time: 2.80s, valid_score: 0.363500]
+Wed 24 Nov 2021 04:20:25 INFO  valid result: 
+recall@10 : 0.209    mrr@10 : 0.3635    ndcg@10 : 0.2235    hit@10 : 0.7508    precision@10 : 0.1581    
+Wed 24 Nov 2021 04:20:25 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:20:25 INFO  epoch 47 training [time: 0.18s, train loss: 6.1894]
+Wed 24 Nov 2021 04:20:28 INFO  epoch 47 evaluating [time: 2.89s, valid_score: 0.364300]
+Wed 24 Nov 2021 04:20:28 INFO  valid result: 
+recall@10 : 0.2081    mrr@10 : 0.3643    ndcg@10 : 0.2243    hit@10 : 0.7455    precision@10 : 0.1584    
+Wed 24 Nov 2021 04:20:28 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:20:28 INFO  epoch 48 training [time: 0.22s, train loss: 6.0512]
+Wed 24 Nov 2021 04:20:31 INFO  epoch 48 evaluating [time: 2.95s, valid_score: 0.361400]
+Wed 24 Nov 2021 04:20:31 INFO  valid result: 
+recall@10 : 0.2069    mrr@10 : 0.3614    ndcg@10 : 0.2237    hit@10 : 0.7381    precision@10 : 0.1585    
+Wed 24 Nov 2021 04:20:31 INFO  epoch 49 training [time: 0.16s, train loss: 6.0286]
+Wed 24 Nov 2021 04:20:34 INFO  epoch 49 evaluating [time: 2.83s, valid_score: 0.358300]
+Wed 24 Nov 2021 04:20:34 INFO  valid result: 
+recall@10 : 0.209    mrr@10 : 0.3583    ndcg@10 : 0.2239    hit@10 : 0.737    precision@10 : 0.1599    
+Wed 24 Nov 2021 04:20:34 INFO  epoch 50 training [time: 0.19s, train loss: 5.9374]
+Wed 24 Nov 2021 04:20:37 INFO  epoch 50 evaluating [time: 2.84s, valid_score: 0.363800]
+Wed 24 Nov 2021 04:20:37 INFO  valid result: 
+recall@10 : 0.2113    mrr@10 : 0.3638    ndcg@10 : 0.2261    hit@10 : 0.7391    precision@10 : 0.161    
+Wed 24 Nov 2021 04:20:37 INFO  epoch 51 training [time: 0.21s, train loss: 5.9134]
+Wed 24 Nov 2021 04:20:40 INFO  epoch 51 evaluating [time: 3.03s, valid_score: 0.358900]
+Wed 24 Nov 2021 04:20:40 INFO  valid result: 
+recall@10 : 0.2075    mrr@10 : 0.3589    ndcg@10 : 0.2233    hit@10 : 0.7317    precision@10 : 0.1591    
+Wed 24 Nov 2021 04:20:40 INFO  epoch 52 training [time: 0.16s, train loss: 5.7499]
+Wed 24 Nov 2021 04:20:43 INFO  epoch 52 evaluating [time: 2.79s, valid_score: 0.360200]
+Wed 24 Nov 2021 04:20:43 INFO  valid result: 
+recall@10 : 0.2092    mrr@10 : 0.3602    ndcg@10 : 0.224    hit@10 : 0.7296    precision@10 : 0.1594    
+Wed 24 Nov 2021 04:20:43 INFO  epoch 53 training [time: 0.23s, train loss: 5.7754]
+Wed 24 Nov 2021 04:20:47 INFO  epoch 53 evaluating [time: 3.04s, valid_score: 0.360700]
+Wed 24 Nov 2021 04:20:47 INFO  valid result: 
+recall@10 : 0.2127    mrr@10 : 0.3607    ndcg@10 : 0.2246    hit@10 : 0.7349    precision@10 : 0.1598    
+Wed 24 Nov 2021 04:20:47 INFO  epoch 54 training [time: 0.20s, train loss: 5.7078]
+Wed 24 Nov 2021 04:20:50 INFO  epoch 54 evaluating [time: 2.89s, valid_score: 0.364400]
+Wed 24 Nov 2021 04:20:50 INFO  valid result: 
+recall@10 : 0.2107    mrr@10 : 0.3644    ndcg@10 : 0.225    hit@10 : 0.737    precision@10 : 0.1587    
+Wed 24 Nov 2021 04:20:50 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:20:50 INFO  epoch 55 training [time: 0.26s, train loss: 5.6141]
+Wed 24 Nov 2021 04:20:53 INFO  epoch 55 evaluating [time: 2.95s, valid_score: 0.366600]
+Wed 24 Nov 2021 04:20:53 INFO  valid result: 
+recall@10 : 0.2126    mrr@10 : 0.3666    ndcg@10 : 0.2269    hit@10 : 0.7391    precision@10 : 0.1611    
+Wed 24 Nov 2021 04:20:53 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:20:53 INFO  epoch 56 training [time: 0.17s, train loss: 5.5770]
+Wed 24 Nov 2021 04:20:56 INFO  epoch 56 evaluating [time: 2.78s, valid_score: 0.361000]
+Wed 24 Nov 2021 04:20:56 INFO  valid result: 
+recall@10 : 0.2109    mrr@10 : 0.361    ndcg@10 : 0.2251    hit@10 : 0.7402    precision@10 : 0.1606    
+Wed 24 Nov 2021 04:20:56 INFO  epoch 57 training [time: 0.16s, train loss: 5.4402]
+Wed 24 Nov 2021 04:20:59 INFO  epoch 57 evaluating [time: 2.77s, valid_score: 0.366000]
+Wed 24 Nov 2021 04:20:59 INFO  valid result: 
+recall@10 : 0.2129    mrr@10 : 0.366    ndcg@10 : 0.2258    hit@10 : 0.7413    precision@10 : 0.1607    
+Wed 24 Nov 2021 04:20:59 INFO  epoch 58 training [time: 0.16s, train loss: 5.3878]
+Wed 24 Nov 2021 04:21:02 INFO  epoch 58 evaluating [time: 2.78s, valid_score: 0.365200]
+Wed 24 Nov 2021 04:21:02 INFO  valid result: 
+recall@10 : 0.212    mrr@10 : 0.3652    ndcg@10 : 0.225    hit@10 : 0.7455    precision@10 : 0.1613    
+Wed 24 Nov 2021 04:21:02 INFO  epoch 59 training [time: 0.16s, train loss: 5.3865]
+Wed 24 Nov 2021 04:21:05 INFO  epoch 59 evaluating [time: 2.81s, valid_score: 0.368600]
+Wed 24 Nov 2021 04:21:05 INFO  valid result: 
+recall@10 : 0.215    mrr@10 : 0.3686    ndcg@10 : 0.2273    hit@10 : 0.7561    precision@10 : 0.1625    
+Wed 24 Nov 2021 04:21:05 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:21:05 INFO  epoch 60 training [time: 0.27s, train loss: 5.3412]
+Wed 24 Nov 2021 04:21:08 INFO  epoch 60 evaluating [time: 2.94s, valid_score: 0.367900]
+Wed 24 Nov 2021 04:21:08 INFO  valid result: 
+recall@10 : 0.213    mrr@10 : 0.3679    ndcg@10 : 0.2268    hit@10 : 0.7476    precision@10 : 0.1618    
+Wed 24 Nov 2021 04:21:08 INFO  epoch 61 training [time: 0.17s, train loss: 5.2362]
+Wed 24 Nov 2021 04:21:11 INFO  epoch 61 evaluating [time: 2.81s, valid_score: 0.373600]
+Wed 24 Nov 2021 04:21:11 INFO  valid result: 
+recall@10 : 0.214    mrr@10 : 0.3736    ndcg@10 : 0.2277    hit@10 : 0.7423    precision@10 : 0.1614    
+Wed 24 Nov 2021 04:21:11 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:21:11 INFO  epoch 62 training [time: 0.23s, train loss: 5.2112]
+Wed 24 Nov 2021 04:21:14 INFO  epoch 62 evaluating [time: 2.98s, valid_score: 0.370100]
+Wed 24 Nov 2021 04:21:14 INFO  valid result: 
+recall@10 : 0.2128    mrr@10 : 0.3701    ndcg@10 : 0.2269    hit@10 : 0.7423    precision@10 : 0.1607    
+Wed 24 Nov 2021 04:21:15 INFO  epoch 63 training [time: 0.29s, train loss: 5.1538]
+Wed 24 Nov 2021 04:21:18 INFO  epoch 63 evaluating [time: 3.10s, valid_score: 0.372700]
+Wed 24 Nov 2021 04:21:18 INFO  valid result: 
+recall@10 : 0.2116    mrr@10 : 0.3727    ndcg@10 : 0.2274    hit@10 : 0.7434    precision@10 : 0.1608    
+Wed 24 Nov 2021 04:21:18 INFO  epoch 64 training [time: 0.15s, train loss: 5.0345]
+Wed 24 Nov 2021 04:21:21 INFO  epoch 64 evaluating [time: 2.75s, valid_score: 0.368500]
+Wed 24 Nov 2021 04:21:21 INFO  valid result: 
+recall@10 : 0.2133    mrr@10 : 0.3685    ndcg@10 : 0.228    hit@10 : 0.7434    precision@10 : 0.1616    
+Wed 24 Nov 2021 04:21:21 INFO  epoch 65 training [time: 0.16s, train loss: 4.9525]
+Wed 24 Nov 2021 04:21:24 INFO  epoch 65 evaluating [time: 2.43s, valid_score: 0.373800]
+Wed 24 Nov 2021 04:21:24 INFO  valid result: 
+recall@10 : 0.215    mrr@10 : 0.3738    ndcg@10 : 0.2306    hit@10 : 0.754    precision@10 : 0.1629    
+Wed 24 Nov 2021 04:21:24 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:21:24 INFO  epoch 66 training [time: 0.17s, train loss: 4.8850]
+Wed 24 Nov 2021 04:21:27 INFO  epoch 66 evaluating [time: 2.78s, valid_score: 0.375700]
+Wed 24 Nov 2021 04:21:27 INFO  valid result: 
+recall@10 : 0.2167    mrr@10 : 0.3757    ndcg@10 : 0.2311    hit@10 : 0.755    precision@10 : 0.1631    
+Wed 24 Nov 2021 04:21:27 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:21:27 INFO  epoch 67 training [time: 0.18s, train loss: 4.9108]
+Wed 24 Nov 2021 04:21:30 INFO  epoch 67 evaluating [time: 2.81s, valid_score: 0.371300]
+Wed 24 Nov 2021 04:21:30 INFO  valid result: 
+recall@10 : 0.2145    mrr@10 : 0.3713    ndcg@10 : 0.229    hit@10 : 0.7476    precision@10 : 0.1627    
+Wed 24 Nov 2021 04:21:30 INFO  epoch 68 training [time: 0.18s, train loss: 4.8150]
+Wed 24 Nov 2021 04:21:33 INFO  epoch 68 evaluating [time: 2.88s, valid_score: 0.372600]
+Wed 24 Nov 2021 04:21:33 INFO  valid result: 
+recall@10 : 0.2157    mrr@10 : 0.3726    ndcg@10 : 0.2299    hit@10 : 0.7519    precision@10 : 0.1631    
+Wed 24 Nov 2021 04:21:33 INFO  epoch 69 training [time: 0.16s, train loss: 4.7943]
+Wed 24 Nov 2021 04:21:36 INFO  epoch 69 evaluating [time: 2.76s, valid_score: 0.372900]
+Wed 24 Nov 2021 04:21:36 INFO  valid result: 
+recall@10 : 0.2161    mrr@10 : 0.3729    ndcg@10 : 0.2299    hit@10 : 0.7582    precision@10 : 0.1627    
+Wed 24 Nov 2021 04:21:36 INFO  epoch 70 training [time: 0.19s, train loss: 4.7940]
+Wed 24 Nov 2021 04:21:39 INFO  epoch 70 evaluating [time: 2.87s, valid_score: 0.369300]
+Wed 24 Nov 2021 04:21:39 INFO  valid result: 
+recall@10 : 0.2136    mrr@10 : 0.3693    ndcg@10 : 0.2282    hit@10 : 0.754    precision@10 : 0.1612    
+Wed 24 Nov 2021 04:21:39 INFO  epoch 71 training [time: 0.16s, train loss: 4.6746]
+Wed 24 Nov 2021 04:21:42 INFO  epoch 71 evaluating [time: 2.78s, valid_score: 0.376100]
+Wed 24 Nov 2021 04:21:42 INFO  valid result: 
+recall@10 : 0.2167    mrr@10 : 0.3761    ndcg@10 : 0.2306    hit@10 : 0.7593    precision@10 : 0.1617    
+Wed 24 Nov 2021 04:21:42 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:21:42 INFO  epoch 72 training [time: 0.18s, train loss: 4.6404]
+Wed 24 Nov 2021 04:21:45 INFO  epoch 72 evaluating [time: 2.88s, valid_score: 0.379400]
+Wed 24 Nov 2021 04:21:45 INFO  valid result: 
+recall@10 : 0.2138    mrr@10 : 0.3794    ndcg@10 : 0.2298    hit@10 : 0.7508    precision@10 : 0.1607    
+Wed 24 Nov 2021 04:21:45 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:21:45 INFO  epoch 73 training [time: 0.15s, train loss: 4.6948]
+Wed 24 Nov 2021 04:21:48 INFO  epoch 73 evaluating [time: 2.80s, valid_score: 0.383600]
+Wed 24 Nov 2021 04:21:48 INFO  valid result: 
+recall@10 : 0.2125    mrr@10 : 0.3836    ndcg@10 : 0.2302    hit@10 : 0.7497    precision@10 : 0.1599    
+Wed 24 Nov 2021 04:21:48 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:21:48 INFO  epoch 74 training [time: 0.21s, train loss: 4.5253]
+Wed 24 Nov 2021 04:21:51 INFO  epoch 74 evaluating [time: 2.91s, valid_score: 0.383600]
+Wed 24 Nov 2021 04:21:51 INFO  valid result: 
+recall@10 : 0.2153    mrr@10 : 0.3836    ndcg@10 : 0.2313    hit@10 : 0.7582    precision@10 : 0.161    
+Wed 24 Nov 2021 04:21:51 INFO  epoch 75 training [time: 0.18s, train loss: 4.4882]
+Wed 24 Nov 2021 04:21:54 INFO  epoch 75 evaluating [time: 2.75s, valid_score: 0.377200]
+Wed 24 Nov 2021 04:21:54 INFO  valid result: 
+recall@10 : 0.2153    mrr@10 : 0.3772    ndcg@10 : 0.2305    hit@10 : 0.7508    precision@10 : 0.1614    
+Wed 24 Nov 2021 04:21:54 INFO  epoch 76 training [time: 0.15s, train loss: 4.4162]
+Wed 24 Nov 2021 04:21:57 INFO  epoch 76 evaluating [time: 2.75s, valid_score: 0.378900]
+Wed 24 Nov 2021 04:21:57 INFO  valid result: 
+recall@10 : 0.2156    mrr@10 : 0.3789    ndcg@10 : 0.2305    hit@10 : 0.7519    precision@10 : 0.1613    
+Wed 24 Nov 2021 04:21:57 INFO  epoch 77 training [time: 0.16s, train loss: 4.3353]
+Wed 24 Nov 2021 04:22:00 INFO  epoch 77 evaluating [time: 2.82s, valid_score: 0.379700]
+Wed 24 Nov 2021 04:22:00 INFO  valid result: 
+recall@10 : 0.2175    mrr@10 : 0.3797    ndcg@10 : 0.2322    hit@10 : 0.7508    precision@10 : 0.162    
+Wed 24 Nov 2021 04:22:00 INFO  epoch 78 training [time: 0.16s, train loss: 4.3724]
+Wed 24 Nov 2021 04:22:03 INFO  epoch 78 evaluating [time: 2.73s, valid_score: 0.376600]
+Wed 24 Nov 2021 04:22:03 INFO  valid result: 
+recall@10 : 0.2155    mrr@10 : 0.3766    ndcg@10 : 0.2308    hit@10 : 0.7466    precision@10 : 0.1614    
+Wed 24 Nov 2021 04:22:03 INFO  epoch 79 training [time: 0.21s, train loss: 4.3832]
+Wed 24 Nov 2021 04:22:06 INFO  epoch 79 evaluating [time: 2.99s, valid_score: 0.379500]
+Wed 24 Nov 2021 04:22:06 INFO  valid result: 
+recall@10 : 0.2163    mrr@10 : 0.3795    ndcg@10 : 0.2314    hit@10 : 0.7508    precision@10 : 0.1622    
+Wed 24 Nov 2021 04:22:06 INFO  epoch 80 training [time: 0.17s, train loss: 4.3226]
+Wed 24 Nov 2021 04:22:09 INFO  epoch 80 evaluating [time: 2.82s, valid_score: 0.380300]
+Wed 24 Nov 2021 04:22:09 INFO  valid result: 
+recall@10 : 0.2158    mrr@10 : 0.3803    ndcg@10 : 0.2319    hit@10 : 0.7497    precision@10 : 0.1618    
+Wed 24 Nov 2021 04:22:09 INFO  epoch 81 training [time: 0.15s, train loss: 4.2004]
+Wed 24 Nov 2021 04:22:12 INFO  epoch 81 evaluating [time: 2.81s, valid_score: 0.385300]
+Wed 24 Nov 2021 04:22:12 INFO  valid result: 
+recall@10 : 0.213    mrr@10 : 0.3853    ndcg@10 : 0.231    hit@10 : 0.7455    precision@10 : 0.1599    
+Wed 24 Nov 2021 04:22:12 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:22:12 INFO  epoch 82 training [time: 0.16s, train loss: 4.1098]
+Wed 24 Nov 2021 04:22:15 INFO  epoch 82 evaluating [time: 2.53s, valid_score: 0.383300]
+Wed 24 Nov 2021 04:22:15 INFO  valid result: 
+recall@10 : 0.2128    mrr@10 : 0.3833    ndcg@10 : 0.2307    hit@10 : 0.7466    precision@10 : 0.1607    
+Wed 24 Nov 2021 04:22:15 INFO  epoch 83 training [time: 0.17s, train loss: 4.0376]
+Wed 24 Nov 2021 04:22:18 INFO  epoch 83 evaluating [time: 2.84s, valid_score: 0.384900]
+Wed 24 Nov 2021 04:22:18 INFO  valid result: 
+recall@10 : 0.2139    mrr@10 : 0.3849    ndcg@10 : 0.2307    hit@10 : 0.7519    precision@10 : 0.1597    
+Wed 24 Nov 2021 04:22:18 INFO  epoch 84 training [time: 0.21s, train loss: 4.0228]
+Wed 24 Nov 2021 04:22:21 INFO  epoch 84 evaluating [time: 2.84s, valid_score: 0.383600]
+Wed 24 Nov 2021 04:22:21 INFO  valid result: 
+recall@10 : 0.2145    mrr@10 : 0.3836    ndcg@10 : 0.2308    hit@10 : 0.7497    precision@10 : 0.1608    
+Wed 24 Nov 2021 04:22:21 INFO  epoch 85 training [time: 0.22s, train loss: 4.0504]
+Wed 24 Nov 2021 04:22:24 INFO  epoch 85 evaluating [time: 2.93s, valid_score: 0.387100]
+Wed 24 Nov 2021 04:22:24 INFO  valid result: 
+recall@10 : 0.2195    mrr@10 : 0.3871    ndcg@10 : 0.2344    hit@10 : 0.7582    precision@10 : 0.1627    
+Wed 24 Nov 2021 04:22:24 INFO  Saving current best: saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:22:24 INFO  epoch 86 training [time: 0.26s, train loss: 4.0057]
+Wed 24 Nov 2021 04:22:27 INFO  epoch 86 evaluating [time: 3.00s, valid_score: 0.387100]
+Wed 24 Nov 2021 04:22:27 INFO  valid result: 
+recall@10 : 0.2189    mrr@10 : 0.3871    ndcg@10 : 0.2338    hit@10 : 0.754    precision@10 : 0.1617    
+Wed 24 Nov 2021 04:22:27 INFO  epoch 87 training [time: 0.19s, train loss: 3.9667]
+Wed 24 Nov 2021 04:22:30 INFO  epoch 87 evaluating [time: 2.86s, valid_score: 0.382400]
+Wed 24 Nov 2021 04:22:30 INFO  valid result: 
+recall@10 : 0.2176    mrr@10 : 0.3824    ndcg@10 : 0.2314    hit@10 : 0.754    precision@10 : 0.161    
+Wed 24 Nov 2021 04:22:30 INFO  epoch 88 training [time: 0.17s, train loss: 3.9260]
+Wed 24 Nov 2021 04:22:33 INFO  epoch 88 evaluating [time: 2.86s, valid_score: 0.385900]
+Wed 24 Nov 2021 04:22:33 INFO  valid result: 
+recall@10 : 0.2186    mrr@10 : 0.3859    ndcg@10 : 0.2311    hit@10 : 0.7646    precision@10 : 0.1606    
+Wed 24 Nov 2021 04:22:33 INFO  epoch 89 training [time: 0.23s, train loss: 3.8730]
+Wed 24 Nov 2021 04:22:37 INFO  epoch 89 evaluating [time: 3.02s, valid_score: 0.383500]
+Wed 24 Nov 2021 04:22:37 INFO  valid result: 
+recall@10 : 0.2179    mrr@10 : 0.3835    ndcg@10 : 0.2315    hit@10 : 0.7614    precision@10 : 0.1617    
+Wed 24 Nov 2021 04:22:37 INFO  epoch 90 training [time: 0.22s, train loss: 3.8188]
+Wed 24 Nov 2021 04:22:40 INFO  epoch 90 evaluating [time: 2.96s, valid_score: 0.381300]
+Wed 24 Nov 2021 04:22:40 INFO  valid result: 
+recall@10 : 0.2178    mrr@10 : 0.3813    ndcg@10 : 0.2302    hit@10 : 0.7614    precision@10 : 0.1614    
+Wed 24 Nov 2021 04:22:40 INFO  epoch 91 training [time: 0.22s, train loss: 3.8420]
+Wed 24 Nov 2021 04:22:43 INFO  epoch 91 evaluating [time: 2.95s, valid_score: 0.378700]
+Wed 24 Nov 2021 04:22:43 INFO  valid result: 
+recall@10 : 0.2189    mrr@10 : 0.3787    ndcg@10 : 0.2303    hit@10 : 0.7625    precision@10 : 0.1609    
+Wed 24 Nov 2021 04:22:43 INFO  epoch 92 training [time: 0.22s, train loss: 3.8423]
+Wed 24 Nov 2021 04:22:46 INFO  epoch 92 evaluating [time: 3.01s, valid_score: 0.375000]
+Wed 24 Nov 2021 04:22:46 INFO  valid result: 
+recall@10 : 0.2183    mrr@10 : 0.375    ndcg@10 : 0.2297    hit@10 : 0.7561    precision@10 : 0.1613    
+Wed 24 Nov 2021 04:22:46 INFO  epoch 93 training [time: 0.24s, train loss: 3.7423]
+Wed 24 Nov 2021 04:22:49 INFO  epoch 93 evaluating [time: 3.05s, valid_score: 0.379000]
+Wed 24 Nov 2021 04:22:49 INFO  valid result: 
+recall@10 : 0.2185    mrr@10 : 0.379    ndcg@10 : 0.2308    hit@10 : 0.7572    precision@10 : 0.1614    
+Wed 24 Nov 2021 04:22:50 INFO  epoch 94 training [time: 0.21s, train loss: 3.7439]
+Wed 24 Nov 2021 04:22:53 INFO  epoch 94 evaluating [time: 2.96s, valid_score: 0.376200]
+Wed 24 Nov 2021 04:22:53 INFO  valid result: 
+recall@10 : 0.2195    mrr@10 : 0.3762    ndcg@10 : 0.2306    hit@10 : 0.7625    precision@10 : 0.1627    
+Wed 24 Nov 2021 04:22:53 INFO  epoch 95 training [time: 0.16s, train loss: 3.7452]
+Wed 24 Nov 2021 04:22:56 INFO  epoch 95 evaluating [time: 2.79s, valid_score: 0.377300]
+Wed 24 Nov 2021 04:22:56 INFO  valid result: 
+recall@10 : 0.2196    mrr@10 : 0.3773    ndcg@10 : 0.2304    hit@10 : 0.7603    precision@10 : 0.162    
+Wed 24 Nov 2021 04:22:56 INFO  epoch 96 training [time: 0.16s, train loss: 3.7170]
+Wed 24 Nov 2021 04:22:59 INFO  epoch 96 evaluating [time: 2.84s, valid_score: 0.375200]
+Wed 24 Nov 2021 04:22:59 INFO  valid result: 
+recall@10 : 0.2162    mrr@10 : 0.3752    ndcg@10 : 0.2284    hit@10 : 0.7508    precision@10 : 0.1602    
+Wed 24 Nov 2021 04:22:59 INFO  Finished training, best eval result in epoch 85
+Wed 24 Nov 2021 04:22:59 INFO  Loading model structure and parameters from saved/BPR-Nov-24-2021_04-17-56.pth
+Wed 24 Nov 2021 04:23:02 INFO  best valid : {'recall@10': 0.2195, 'mrr@10': 0.3871, 'ndcg@10': 0.2344, 'hit@10': 0.7582, 'precision@10': 0.1627}
+Wed 24 Nov 2021 04:23:02 INFO  test result: {'recall@10': 0.2523, 'mrr@10': 0.4855, 'ndcg@10': 0.292, 'hit@10': 0.7953, 'precision@10': 0.1962}
+Wed 24 Nov 2021 08:38:00 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = dataset/cell_data
+show_progress = True
+save_dataset = False
+save_dataloaders = False
+benchmark_filename = None
+
+Training Hyper Parameters:
+checkpoint_dir = saved
+epochs = 300
+train_batch_size = 2048
+learner = adam
+learning_rate = 0.001
+eval_step = 1
+stopping_step = 10
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [10]
+valid_metric = MRR@10
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [0,inf)
+item_inter_num_interval = [0,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = None
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+
+Other Hyper Parameters: 
+neg_sampling = {'uniform': 1}
+repeatable = False
+embedding_size = 64
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+device = cuda
+train_neg_sample_args = {'strategy': 'by', 'by': 1, 'distribution': 'uniform'}
+eval_neg_sample_args = {'strategy': 'full', 'distribution': 'uniform'}
+
+
+Wed 24 Nov 2021 08:38:18 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = dataset/./cell_data
+show_progress = True
+save_dataset = False
+save_dataloaders = False
+benchmark_filename = None
+
+Training Hyper Parameters:
+checkpoint_dir = saved
+epochs = 300
+train_batch_size = 2048
+learner = adam
+learning_rate = 0.001
+eval_step = 1
+stopping_step = 10
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [10]
+valid_metric = MRR@10
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [0,inf)
+item_inter_num_interval = [0,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = None
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+
+Other Hyper Parameters: 
+neg_sampling = {'uniform': 1}
+repeatable = False
+embedding_size = 64
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+device = cuda
+train_neg_sample_args = {'strategy': 'by', 'by': 1, 'distribution': 'uniform'}
+eval_neg_sample_args = {'strategy': 'full', 'distribution': 'uniform'}
+
+
